@@ -5,6 +5,7 @@ angular.module("Person8", [])
     $routeProvider
       .when "/",
         templateUrl: "posts/index"
+        controller: "PostsController"
       .otherwise
         redirectTo: "/"
   ]
