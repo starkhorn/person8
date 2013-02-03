@@ -2,16 +2,11 @@ class ApplicationController < ActionController::Base
   layout false
   protect_from_forgery
 
-  before_filter :redirect_if_partial
+  before_filter :redirect_to_angular
 
   def render *args
     generate_master_models
     super
-  end
-
-protected
-  def partial?
-    true
   end
 
 private
@@ -23,9 +18,23 @@ private
     end
   end
 
-  def redirect_if_partial
-    if "text/html" == request.format && partial?
-      redirect_to "/##{request.fullpath}"
+  def redirect_to_angular
+    # check if the user uses a direct (deep-link) url
+    # need to find a better solution for this
+    puts "f path = #{request.fullpath}"
+    if "text/html" == request.format
+      fullpath = request.fullpath
+      parts = request.fullpath.split("?")
+      paths = parts[0].split("/")
+
+      if paths[-1].include?(".")
+        lastPath = paths.pop
+        paths.push lastPath[0 ... lastPath.rindex(".")]
+      end
+
+      parts[0] = paths.join("/")
+
+      redirect_to "/##{parts.join("?")}"
     end
   end
 end

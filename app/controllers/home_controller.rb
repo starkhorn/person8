@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   layout "application"
-
-  def partial?
-    false
-  end
+  skip_before_filter :redirect_to_angular, :only => :index
 
   def index
     @title = "Starkhorn"
