@@ -6,6 +6,7 @@ gem 'rails', '3.2.11'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'jquery-rails'
 
 
 # Gems used only for assets and not required
@@ -21,10 +22,17 @@ group :assets do
 end
 
 group :development do
-	gem 'haml', '~> 3.1.7'
+  gem 'haml', '~> 3.1.7'
+  gem 'win32console'
+  gem 'wdm', '~> 0.0.3'
 end
 
-gem 'jquery-rails'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
