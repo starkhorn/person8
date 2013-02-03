@@ -1,6 +1,11 @@
-= angular_scope(@posts)
+= angular_scope(@models)
+= angular_scope(:newName => @posts)
+= angular_scope(:me => "Tharathorn Inphen")
 
-%h1 Post#index
-%p Find me in app/views/posts/index.html.haml
-%p Test is {{test}}
-%p#testP My var is {{myVar}}
+%p posts.test is {{posts.test}}
+%p user.first is {{user.first}}
+%p user.last is {{user.last}}
+%p myVar is {{myVar}}
+%p newName.test is {{newName.test}}
+%p me is {{me}}
+%p title is {{title}}

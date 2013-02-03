@@ -17,5 +17,9 @@ describe ApplicationHelper do
       json = CGI.escapeHTML(data.to_json)
       should match /#{json}/
     end
+
+    it "generates nothing when its parameter is an empty hash" do
+      helper.angular_scope({}).should be_nil
+    end
   end  
 end

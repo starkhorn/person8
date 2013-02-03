@@ -1,11 +1,13 @@
 !!! 5
 %html(ng-app="Person8")
   %head
-    %title Person8
-    = stylesheet_link_tag    "application", :media => "all"
+    %title {{title}}
+    = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     
   %body
-    = yield
+    = angular_scope(@models)
+
+    .container(ng-view)
 
     = javascript_include_tag "application"
