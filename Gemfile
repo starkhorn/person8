@@ -23,8 +23,6 @@ end
 
 group :development do
   gem 'haml', '~> 3.1.7'
-  gem 'win32console'
-  gem 'wdm', '~> 0.0.3'
 end
 
 group :development, :test do
@@ -32,6 +30,8 @@ group :development, :test do
   gem 'guard'
   gem 'guard-spork'
   gem 'guard-rspec'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'wdm', '~> 0.0.3'
 end
 
 # To use ActiveModel has_secure_password
