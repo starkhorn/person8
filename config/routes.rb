@@ -1,4 +1,6 @@
 Person8::Application.routes.draw do
+  get "posts/index"
+
   get "home/index"
 
   # The priority is based upon order of creation:
