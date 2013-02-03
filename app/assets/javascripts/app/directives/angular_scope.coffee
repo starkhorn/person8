@@ -1,7 +1,7 @@
 "use strict"
 
 angular.module("Person8")
-  .directive "angularScope", [ 
+  .directive "railsScope", [ 
     ->
       restrict: "E"
       link: (scope, elm, attrs) ->
