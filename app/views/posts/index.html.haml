@@ -1,6 +1,7 @@
 = angular_scope(@models)
 = angular_scope(:newName => @posts)
 = angular_scope(:me => "Tharathorn Inphen")
+= angular_scope(:users => [ { :name => "a" }, { :name => "b" } ])
 
 %p posts.test is {{posts.test}}
 %p user.first is {{user.first}}
@@ -13,6 +14,6 @@
 %a(href="/posts/show") Show
 
 - @users.each do |user|
-  %div{:'ng-repeat' => "user in users", :class => "#{unless @users.last == user then 'rails-template' end}"}
-    %p{:'ng-bind' => "user.name"} 
+  %div{:ng_repeat => "user in users", :class => "#{unless @users.last == user then 'rails-template' end}"}
+    %p{:ng_bind => "user.name"} 
       = user[:name]

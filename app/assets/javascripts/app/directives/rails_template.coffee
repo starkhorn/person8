@@ -4,6 +4,7 @@ angular.module("Person8")
   .directive "railsTemplate", [ 
     ->
       restrict: "EC"
-      link: (scope, elm, attrs) ->
+      priority: 10000
+      compile: (elm, attrs, transclude) ->
         $(elm).remove()
   ]
