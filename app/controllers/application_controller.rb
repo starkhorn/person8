@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   layout :view_layout
   protect_from_forgery
-  before_filter { puts "partials = #{params[:partial]}"; @partial = ("true" == params[:partial]) }
+  before_filter { @partial = ("true" == params[:partial]) }
 
   def render *args
     generate_master_models
