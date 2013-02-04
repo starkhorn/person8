@@ -1,7 +1,9 @@
 Person8::Application.routes.draw do
+  mount Mercury::Engine => '/'
+
   get "home/index"
 
-  resources :posts, :only => [:index]
+  resources :posts, :only => [:index, :new]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,6 +10,8 @@ angular.module("Person8", [])
         .when "/",
           templateUrl: "/posts?partial=true"
           controller: "PostsController"
+        .when "/posts/new"
+          templateUrl: "/posts/new?partial=true"
         .otherwise
           redirectTo: "/"
   ]

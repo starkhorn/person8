@@ -7,6 +7,6 @@ class PostsController < ApplicationController
     ]
   end
 
-  def show
+  def new
   end
 end
