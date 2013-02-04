@@ -1,19 +1,21 @@
-= angular_scope(@models)
-= angular_scope(:newName => @posts)
-= angular_scope(:me => "Tharathorn Inphen")
-= angular_scope(:users => [ { :name => "a" }, { :name => "b" } ])
+/ = angular_scope(@models)
+/ = angular_scope(:newName => @posts)
+/ = angular_scope(:me => "Tharathorn Inphen")
+/ = angular_scope(:users => [ { :name => "a" }, { :name => "b" } ])
 
-%p posts.test is {{posts.test}}
-%p user.first is {{user.first}}
-%p user.last is {{user.last}}
-%p myVar is {{myVar}}
-%p newName.test is {{newName.test}}
-%p me is {{me}}
-%p title is {{title}}
+/ %p posts.test is {{posts.test}}
+/ %p user.first is {{user.first}}
+/ %p user.last is {{user.last}}
+/ %p myVar is {{myVar}}
+/ %p newName.test is {{newName.test}}
+/ %p me is {{me}}
+/ %p title is {{title}}
 
-%a(href="/posts/show") Show
+/ %a(href="/posts/show") Show
 
-- @users.each do |user|
-  - angular_repeat_block("user in users", @users.last == user) do
-    %p{:ng_bind => "user.name"} 
-      = user[:name]
+/ - @users.each do |user|
+/   - angular_repeat_block("user in users", @users.last == user) do
+/     %p{:ng_bind => "user.name"} 
+/       = user[:name]
+
+%p Posts Index

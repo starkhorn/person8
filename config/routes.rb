@@ -1,8 +1,7 @@
 Person8::Application.routes.draw do
-  get "posts/index"
-  get "posts/show"
-
   get "home/index"
+
+  resources :posts, :only => [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

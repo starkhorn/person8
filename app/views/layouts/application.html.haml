@@ -1,12 +1,18 @@
 !!! 5
 %html(ng-app="Person8")
   %head
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title Starkhorn
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     
   %body
-    .container(ng-view)
-      = yield
+    .container
+      = render "shared/navbar"
+
+      .row-fluid
+        .span12
+          %div(ng-view)
+            = yield
 
     = javascript_include_tag "application"
