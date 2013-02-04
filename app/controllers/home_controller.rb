@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
-  layout "application"
-  skip_before_filter :redirect_to_angular, :only => :index
+
+  def view_layout
+    "application"
+  end
 
   def index
-    @title = "Starkhorn"
   end
+  
 end

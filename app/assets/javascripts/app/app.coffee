@@ -8,10 +8,10 @@ angular.module("Person8", [])
       $locationProvider.html5Mode true
       $routeProvider
         .when "/",
-          templateUrl: "/posts/index"
+          templateUrl: "/posts/index?partial=true"
           controller: "PostsController"
         .when "/posts/show",
-          templateUrl: "/posts/show"
+          templateUrl: "/posts/show?partial=true"
         .otherwise
           redirectTo: "/"
   ]

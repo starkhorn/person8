@@ -1,12 +1,20 @@
 class ApplicationController < ActionController::Base
-  layout false
+  layout :view_layout
   protect_from_forgery
-
-  before_filter :redirect_to_angular
+  before_filter { puts "partials = #{params[:partial]}"; @partial = ("true" == params[:partial]) }
 
   def render *args
     generate_master_models
     super
+  end
+
+protected
+  def view_layout
+    if @partial
+      false
+    else
+      "application"
+    end
   end
 
 private
@@ -15,26 +23,6 @@ private
 
     @models = instance_variables.inject({}) do |model, name|
       model.merge({ name.delete("@") => self.instance_variable_get(name) })
-    end
-  end
-
-  def redirect_to_angular
-    # check if the user uses a direct (deep-link) url
-    # need to find a better solution for this
-    puts "f path = #{request.fullpath}"
-    if "text/html" == request.format
-      fullpath = request.fullpath
-      parts = request.fullpath.split("?")
-      paths = parts[0].split("/")
-
-      if paths[-1].include?(".")
-        lastPath = paths.pop
-        paths.push lastPath[0 ... lastPath.rindex(".")]
-      end
-
-      parts[0] = paths.join("/")
-
-      redirect_to "/##{parts.join("?")}"
     end
   end
 end

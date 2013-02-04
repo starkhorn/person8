@@ -1,13 +1,12 @@
 !!! 5
 %html(ng-app="Person8")
   %head
-    %title {{title}}
+    %title Starkhorn
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
     
   %body
-    = angular_scope(@models)
-
     .container(ng-view)
+      = yield
 
     = javascript_include_tag "application"
