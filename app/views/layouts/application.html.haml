@@ -8,9 +8,11 @@
     
   %body
     .container
-      = render "shared/navbar"
+      .row
+        .span12
+          = render "shared/navbar"
 
-      .row-fluid
+      .row
         .span12
           %div(ng-view)
             = yield
