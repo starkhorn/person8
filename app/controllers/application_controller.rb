@@ -13,8 +13,12 @@ protected
     if @partial
       false
     else
-      "application"
+      default_layout
     end
+  end
+
+  def default_layout
+    "application"
   end
 
 private

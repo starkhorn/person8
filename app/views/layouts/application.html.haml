@@ -4,7 +4,10 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title Starkhorn
     = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "#{controller_name}.css", :media => "all" if asset_exists?("#{controller_name}.css")
     = csrf_meta_tags
+
+    = yield(:head)
     
   %body
     .container
@@ -18,3 +21,4 @@
             = yield
 
     = javascript_include_tag "application"
+    = javascript_include_tag "#{controller_name}.js" if asset_exists?("#{controller_name}.js")

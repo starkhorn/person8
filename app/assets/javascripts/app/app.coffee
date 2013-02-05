@@ -1,7 +1,7 @@
 "use strict"
 
 angular.module("Person8", [])
-  .config [
+  .config([
     "$routeProvider"
     "$locationProvider"
     ($routeProvider, $locationProvider) ->
@@ -14,4 +14,13 @@ angular.module("Person8", [])
           templateUrl: "/posts/new?partial=true"
         .otherwise
           redirectTo: "/"
-  ]
+  ])
+  .run([
+    "$rootScope"
+    ($rootScope) ->
+      $rootScope.$on "$viewContentLoaded", ->
+        Mercury = Mercury or null
+
+        if Mercury
+          Mercury.trigger "reinitialize"
+  ])

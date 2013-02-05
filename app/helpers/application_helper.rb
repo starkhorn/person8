@@ -10,4 +10,8 @@ module ApplicationHelper
       yield
     end
   end
+
+  def asset_exists?(name)
+    !Rails.application.assets.find_asset(name).nil?
+  end
 end
